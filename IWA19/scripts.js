@@ -1,10 +1,8 @@
 import { BOOKS_PER_PAGE, authors, genres, books } from "./data.js";
 
-/**
- * CONSTANTS
- * Constants using the `querySelector()` method to select elements from
- * the Document Object Model (DOM) using data attributes
- */
+// This code section defines constants that use the querySelector() method 
+// to access specific elements in the Document Object Model (DOM) using their data attributes.
+
 const dataHeaderSearch = document.querySelector('[data-header-search]')
 const dataHeaderSettings = document.querySelector('[data-header-settings]')
 const dataListItems = document.querySelector('[data-list-items]')
@@ -278,45 +276,6 @@ dataSearchForm.addEventListener('submit', (event) => {
     dataSearchForm.reset();
     window.scrollTo({ top: 0, behavior: 'smooth' });
 })
-  
-
-
-
-// dataSearchForm.addEventListener('submit', (event) => {
-//     event.preventDefault()
-//     const formData = new FormData(event.target)
-//     const filters = Object.fromEntries(formData)
-//     const result = []
-
-//     for (const book of bookExtract) {
-//         const titleMatch = filters.title.trim() === '' || book.title.toLowerCase().includes(filters.title.toLowerCase())
-//         const authorMatch = filters.author === 'any' || book.author === filters.author
-//         let genreMatch = false
-        
-//         if (filters.genre = 'any') {
-//             genreMatch = true
-//         } else {
-//             for (const genre of books.genres) { 
-//                 if (singleGenre = filters.genre) { 
-//                     genreMatch = true 
-//                     break;
-//                 }
-//             }
-//         }
-//     }
-//     if (titleMatch && authorMatch && genreMatch) { 
-//         result.push(book)
-//     }
-//     console.log('result: ', result)
-// })
-
-
-// if (result.length < 1) { 
-//     dataListMessage.classList.add('list__message_show')
-// } else {
-//     dataListMessage.classList.remove('list__message_show')
-// }
-
 
 /** 
  * THEME SELECT
@@ -344,12 +303,12 @@ const css = {
 dataSettingsTheme.value = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'night' : 'day'
 let v = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'night' : 'day'
 
-/**
- * This code sets up for a submit event listener. When the form is submitted, the selected 
- * object is created by converting the form data to an object using Object.fromEntries(). 
- * Depending on the theme selected, the --color-light and --color-dark CSS variables are 
- * updated with the corresponding light and dark color values from the css object
- */
+// 
+//  This code sets up for a submit event listener. When the form is submitted, the selected 
+//  object is created by converting the form data to an object using Object.fromEntries(). 
+//  Depending on the theme selected, the --color-light and --color-dark CSS variables are 
+//  updated with the corresponding light and dark color values from the css object
+//  
 dataSettingsForm.addEventListener('submit', (event) => { 
     event.preventDefault()
     const formSubmit = new FormData(event.target)
